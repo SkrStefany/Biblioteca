@@ -113,4 +113,32 @@
   font-size: 40px;
   padding-bottom: 30px;
  }
- 
+
+.T2 {
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+  height: 40vh;          
+  margin: 0; 
+  color: white;             
+}
+
+.serviços {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  
+}
+
+.textob {
+  width: 70%;
+  height: 30px;
+  margin: 10px;
+  background-color: #2e456b;
+  color: white;
+  font-size: 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
