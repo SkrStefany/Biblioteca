@@ -1,23 +1,38 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
-
-
-
-const books = Array(12).fill({ title: "Livro", cover: "https://via.placeholder.com/100" });
+import '../index.css';
 
 export default function Catalogo() {
   const [search, setSearch] = useState("");
+  const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    fetch("https://projetointegrador3.onrender.com/api/Livros")
+      .then((res) => res.json())
+      .then((data) => {
+        setBooks(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Erro ao buscar livros:", err);
+        setLoading(false);
+      });
+  }, []);
 
   const filteredBooks = books.filter((book) =>
-    book.title.toLowerCase().includes(search.toLowerCase())
+    book.titulo?.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
     <div className="catalog-container">
       <h1 className="catalog-title">CATÁLOGO ONLINE</h1>
+
       <div className="search-container">
         <FiSearch className="search-icon" />
         <input
@@ -28,15 +43,29 @@ export default function Catalogo() {
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>
-      <Swiper slidesPerView={4} spaceBetween={10} pagination={{ clickable: true }}>
-        {filteredBooks.map((book, index) => (
-          <SwiperSlide key={index}>
-            <div className="book-card">
-              <img src={book.cover} alt={book.title} className="book-image" />
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+
+      {loading ? (
+        <p>Carregando livros...</p>
+      ) : (
+        <Swiper slidesPerView={4} spaceBetween={10} pagination={{ clickable: true }}>
+          {filteredBooks.map((book) => (
+            <SwiperSlide key={book.id}>
+              <div
+                className="book-card"
+                onClick={() => navigate(`/livro/${book.id}`)}
+                style={{ cursor: "pointer" }}
+              >
+                <img
+                  src={book.capa || "https://via.placeholder.com/100"}
+                  alt={book.titulo}
+                  className="book-image"
+                />
+                <p className="book-title">{book.titulo}</p>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      )}
     </div>
   );
 }
