@@ -10,8 +10,8 @@ function Serviço() {
         </div>
         <div className="serviços">
         <button className="textob"> <Link target="blank" className="textob" to={"/Catalogo"}>Catálogo Online</Link> </button>
-        <button className="textob"> Empréstimo / Renovação </button>
-        <button className="textob"> Contato </button>
+        <button className="textob"><Link target="blank" className="textob" to={"/Emprestimo"}>Emprestimo e Renovação</Link> </button>
+        <button className="textob"> <Link target="blank" className="textob" to={"/Contato"}>Contato</Link>  </button>
 
         </div>
         
