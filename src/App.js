@@ -10,7 +10,7 @@ import Catalogo from "../src/page/catalogo";
 import DetalhesLivro from "../src/page/detalhesLivro";
 import Contato from "../src/page/contato";
 import Emprestimo from "../src/page/emprestimo";
-
+import Login from "../src/page/login";
 
 function App() {
   return (
@@ -23,6 +23,7 @@ function App() {
       <Route path="/livro/:id" element={<DetalhesLivro />} />
       <Route path="/contato" element={<Contato/>} />
       <Route path="/emprestimo" element={<Emprestimo/>} />
+      <Route path="/login" element={<Login/>} />
       
       
       

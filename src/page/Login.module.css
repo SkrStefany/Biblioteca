@@ -1,0 +1,79 @@
+/* Login.module.css */
+.loginWrapper {
+    background: linear-gradient(135deg, #1c5eb4 0%, #2449eb 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+h2 {
+    margin-bottom: 24px;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+label {
+    text-align: left;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 4px;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #7f5af0;
+    box-shadow: 0 0 0 2px rgba(127, 90, 240, 0.2);
+}
+
+.submitButton {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #38179b;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+    background-color: #6842d7;
+}
+
+.toggleButton {
+    background-color: transparent;
+    color: #333;
+    margin-top: 12px;
+    text-decoration: underline;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.toggleButton:hover {
+    color: #7f5af0;
+}
